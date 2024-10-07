@@ -32,13 +32,9 @@ class SignUpViewController: UIViewController {
        
     }
     @objc fileprivate func signInButtonClicked(){
-        showLoginViewController()
+        navigationController?.popViewController(animated: true)
     }
-     fileprivate func showLoginViewController(){
-        let vc = UIStoryboard.init(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-        as? LoginViewController ?? LoginViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+     
     
     
    
