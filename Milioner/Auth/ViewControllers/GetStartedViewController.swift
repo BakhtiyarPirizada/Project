@@ -17,6 +17,9 @@ final class GetStartedViewController: UIViewController {
         configureButton()
 
     }
+    fileprivate func configureLabels(){
+  
+    }
     fileprivate func configureButton(){
         getStartedButton.addTarget(self, action: #selector(getStartedButtonClicked), for: .touchUpInside)
     }

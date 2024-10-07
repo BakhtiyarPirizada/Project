@@ -94,7 +94,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="8Ov-3O-kMB">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mKS-zz-aTX" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mKS-zz-aTX" customClass="SignUpViewController" customModule="Milioner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DLX-4Z-h7k">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,10 +372,10 @@
                         <outlet property="emailText" destination="bSY-tH-yhP" id="8dL-HZ-LGv"/>
                         <outlet property="findNewThings" destination="uxT-dw-OrL" id="XcA-rA-fcM"/>
                         <outlet property="haveAnAccountLabel" destination="agt-ap-6Fi" id="Ie7-g5-iyx"/>
-                        <outlet property="loginButton" destination="Scy-8c-dxq" id="ZmP-fg-se7"/>
                         <outlet property="nameText" destination="TD3-7e-zWD" id="McI-Y1-bzT"/>
                         <outlet property="passwordText" destination="sQ0-mV-Uxk" id="icK-MC-jbH"/>
-                        <outlet property="signUpButton" destination="BXd-xj-WEs" id="lEg-2H-pni"/>
+                        <outlet property="signInButton" destination="BXd-xj-WEs" id="KOy-yI-c1e"/>
+                        <outlet property="signUpButton" destination="Scy-8c-dxq" id="Gfj-gb-9GR"/>
                         <outlet property="surnameText" destination="dyH-gr-zVS" id="S1O-hR-ZPL"/>
                     </connections>
                 </viewController>
@@ -504,8 +504,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="JrB-3y-Djn" userLabel="buttonStackView">
-                                <rect key="frame" x="24" y="428" width="345" height="87.666666666666629"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="JrB-3y-Djn" userLabel="buttonStackView">
+                                <rect key="frame" x="24" y="428" width="345" height="76.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQn-aw-YRM">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
@@ -522,16 +522,16 @@
                                         </buttonConfiguration>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="vkc-gB-eGO">
-                                        <rect key="frame" x="0.0" y="48" width="345" height="39.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="48" width="345" height="28.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHc-Vd-kUq">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="39.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="28.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-Bi-9tt">
-                                                <rect key="frame" x="172.66666666666663" y="0.0" width="172.33333333333337" height="39.666666666666664"/>
+                                                <rect key="frame" x="172.66666666666663" y="0.0" width="172.33333333333337" height="28.333333333333332"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="t1p-L2-pGK"/>
                                                 </constraints>

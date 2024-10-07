@@ -11,7 +11,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var createAccount:UILabel!
     @IBOutlet private weak var findNewThings:UILabel!
     @IBOutlet private weak var haveAnAccountLabel:UILabel!
-    @IBOutlet private weak var loginButton:UIButton!
+    @IBOutlet private weak var signInButton:UIButton!
     @IBOutlet private weak var signUpButton:UIButton!
     @IBOutlet private weak var nameText:UITextField!
     @IBOutlet private weak var surnameText:UITextField!
@@ -20,19 +20,18 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton()
-            //deyisiklikk
-        //deyisiklik
+       
     }
     fileprivate func configureButton(){
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
-        signUpButton.setTitle("Sign Up", for: .normal)
-        loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
-        loginButton.setTitle("Login", for: .normal)
+         signUpButton.setTitle("Sign Up", for: .normal)
+        signInButton.addTarget(self, action: #selector(signInButtonClicked), for: .touchUpInside)
+        signInButton.setTitle("Login", for: .normal)
     }
     @objc fileprivate func signUpButtonClicked(){
-        print(#function)
+       
     }
-    @objc fileprivate func loginButtonClicked(){
+    @objc fileprivate func signInButtonClicked(){
         showLoginViewController()
     }
      fileprivate func showLoginViewController(){

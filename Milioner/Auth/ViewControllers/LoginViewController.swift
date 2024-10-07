@@ -41,7 +41,7 @@ final class LoginViewController: UIViewController {
     fileprivate func  showSignUpController() {
         
             let vc = UIStoryboard.init(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
-            as? SignUpViewController ?? SignUpViewController()
+            as! SignUpViewController
             navigationController?.pushViewController(vc, animated: true)
         }
     
