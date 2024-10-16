@@ -17,7 +17,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var surnameText:UITextField!
     @IBOutlet private weak var emailText:UITextField!
     @IBOutlet private weak var passwordText:UITextField!
-    var counter = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -56,7 +55,7 @@ extension SignUpViewController: UITextFieldDelegate {
         if let name = nameText.text, name.count > 2 {
             nameText.layer.borderWidth = 1.0
             nameText.layer.borderColor = UIColor.green.cgColor
-            counter = 1
+          
         } else {
             nameText.layer.borderWidth = 1.0
             nameText.layer.borderColor = UIColor.red.cgColor
@@ -65,7 +64,7 @@ extension SignUpViewController: UITextFieldDelegate {
         if let email = emailText.text,emailText.isValidEmail(email) {
             emailText.layer.borderWidth = 1.0
            emailText.layer.borderColor = UIColor.green.cgColor
-            counter = 2
+           
         } else {
             emailText.layer.borderWidth = 1.0
             emailText.layer.borderColor = UIColor.red.cgColor
@@ -74,7 +73,7 @@ extension SignUpViewController: UITextFieldDelegate {
         if let surname = surnameText.text, surname.count > 4 {
             surnameText.layer.borderWidth = 1.0
             surnameText.layer.borderColor = UIColor.green.cgColor
-            counter = 3
+            
         } else {
             surnameText.layer.borderWidth = 1.0
             surnameText.layer.borderColor = UIColor.red.cgColor
@@ -83,15 +82,17 @@ extension SignUpViewController: UITextFieldDelegate {
         if let password = passwordText.text, password.count > 7 {
             passwordText.layer.borderWidth = 1.0
             passwordText.layer.borderColor = UIColor.green.cgColor
-            counter = 4
+           
         } else {
             passwordText.layer.borderWidth = 1.0
             passwordText.layer.borderColor = UIColor.red.cgColor
         }
-        if counter == 4 {
+       
+        if emailText.layer.borderColor == UIColor.green.cgColor && surnameText.layer.borderColor == UIColor.green.cgColor && passwordText.layer.borderColor == UIColor.green.cgColor && passwordText.layer.borderColor == UIColor.green.cgColor {
             signUpButton.isHidden = false
+        } else {
+            signUpButton.isHidden = true
         }
-        
 
     }
   
