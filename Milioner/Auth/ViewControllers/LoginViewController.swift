@@ -17,8 +17,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordText:UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureButton()
         configureUI()
+      
        
         
     }
@@ -29,7 +29,14 @@ final class LoginViewController: UIViewController {
         signUpButton.setTitle("Sign Up", for: .normal)
     }
     fileprivate func configureUI(){
+        configureButton()
+        configureTextField()
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    fileprivate func configureTextField() {
+        emailText.delegate = self
+        passwordText.delegate = self
+
     }
     @objc fileprivate func loginButtonButtonClicked(){
         print(#function)
@@ -46,6 +53,11 @@ final class LoginViewController: UIViewController {
         }
     
 }
+extension LoginViewController: UITextFieldDelegate {
+    
+}
+
+
     
 
 
