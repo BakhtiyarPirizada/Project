@@ -36,6 +36,7 @@ final class LoginViewController: UIViewController {
     fileprivate func configureTextField() {
         emailText.delegate = self
         passwordText.delegate = self
+        passwordText.isSecureTextEntry = true
 
     }
     @objc fileprivate func loginButtonButtonClicked(){
@@ -50,10 +51,19 @@ final class LoginViewController: UIViewController {
             let vc = UIStoryboard.init(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
             as! SignUpViewController
             navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
         }
     
 }
 extension LoginViewController: UITextFieldDelegate {
+
+}
+extension LoginViewController: SignUpDelegate {
+    func didFinishSignUp(user: User) {
+        emailText.text = user.email
+        passwordText.text = user.password
+    }
+    
     
 }
 

@@ -4,7 +4,9 @@
 //
 //  Created by Bakhtiyar Pirizada on 06.10.24.
 //
-
+protocol SignUpDelegate: AnyObject {
+    func didFinishSignUp(user:User)
+}
 import UIKit
 
 class SignUpViewController: UIViewController {
@@ -17,6 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var surnameText:UITextField!
     @IBOutlet private weak var emailText:UITextField!
     @IBOutlet private weak var passwordText:UITextField!
+    weak var delegate:SignUpDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -42,7 +45,9 @@ class SignUpViewController: UIViewController {
         
     }
     @objc fileprivate func signUpButtonClicked(){
-        
+        let user = User(name: nameText.text!, surname: surnameText.text!, email: emailText.text!, password: passwordText.text!)
+        delegate?.didFinishSignUp(user: user)
+        navigationController?.popViewController(animated: true)
     }
     @objc fileprivate func signInButtonClicked(){
         navigationController?.popViewController(animated: true)
