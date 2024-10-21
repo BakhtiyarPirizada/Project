@@ -8,10 +8,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    @IBOutlet private weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    fileprivate func configureUI() {
+        imageView.image = .mainControllerBG
+        imageView.backgroundColor = UIColor.mainControllerBG
     }
 
 

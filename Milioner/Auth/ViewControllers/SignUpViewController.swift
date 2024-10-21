@@ -44,6 +44,9 @@ class SignUpViewController: UIViewController {
         passwordText.isSecureTextEntry = true
         
     }
+    func textFieldColor(textField:String) {
+       
+    }
     @objc fileprivate func signUpButtonClicked(){
         let user = User(name: nameText.text!, surname: surnameText.text!, email: emailText.text!, password: passwordText.text!)
         delegate?.didFinishSignUp(user: user)
@@ -53,57 +56,34 @@ class SignUpViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
    
+    fileprivate func checkValidation(
+        name: String,
+        surname: String,
+        password:String,
+        email: String
+    ) -> Bool {
+        let result = name.count < 3 || !email.isValidEmail() || surname.count < 5 || password.count < 8
+        print(result)
+        return result
+    }
+   
 }
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let name = nameText.text,
+              let surname = surnameText.text,
+              let email = emailText.text,
+              let password = passwordText.text else {return}
+                
         
-        if let name = nameText.text, name.count > 2 {
-            nameText.layer.borderWidth = 1.0
-            nameText.layer.borderColor = UIColor.green.cgColor
-          
-        } else {
-            nameText.layer.borderWidth = 1.0
-            nameText.layer.borderColor = UIColor.red.cgColor
-        }
-        
-        if let email = emailText.text,emailText.isValidEmail(email) {
-            emailText.layer.borderWidth = 1.0
-           emailText.layer.borderColor = UIColor.green.cgColor
-           
-        } else {
-            emailText.layer.borderWidth = 1.0
-            emailText.layer.borderColor = UIColor.red.cgColor
-        }
-        
-        if let surname = surnameText.text, surname.count > 4 {
-            surnameText.layer.borderWidth = 1.0
-            surnameText.layer.borderColor = UIColor.green.cgColor
-            
-        } else {
-            surnameText.layer.borderWidth = 1.0
-            surnameText.layer.borderColor = UIColor.red.cgColor
-        }
-        
-        if let password = passwordText.text, password.count > 7 {
-            passwordText.layer.borderWidth = 1.0
-            passwordText.layer.borderColor = UIColor.green.cgColor
-           
-        } else {
-            passwordText.layer.borderWidth = 1.0
-            passwordText.layer.borderColor = UIColor.red.cgColor
-        }
-       
-        if emailText.layer.borderColor == UIColor.green.cgColor && surnameText.layer.borderColor == UIColor.green.cgColor && passwordText.layer.borderColor == UIColor.green.cgColor && passwordText.layer.borderColor == UIColor.green.cgColor {
-            signUpButton.isHidden = false
-        } else {
-            signUpButton.isHidden = true
-        }
+        signUpButton.isHidden = checkValidation(
+            name: name,
+            surname: surname,
+            password: password,
+            email: email
+        )
 
     }
-  
    
-}
-extension UITextField: Validations {
-    
 }
 

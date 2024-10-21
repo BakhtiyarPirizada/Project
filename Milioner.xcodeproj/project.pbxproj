@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F0855802CBFF82C0081CB51 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08557F2CBFF82C0081CB51 /* Validations.swift */; };
 		7F0855852CC0012F0081CB51 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0855842CC0012F0081CB51 /* UserModel.swift */; };
+		7F1AB5852CC2C2BD00140201 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1AB5842CC2C2BD00140201 /* LogOutViewController.swift */; };
+		7F4215262CC02C5E00332D12 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4215252CC02C5E00332D12 /* Extension.swift */; };
+		7F569DD02CC64E7000B6BFEB /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F569DCF2CC64E7000B6BFEB /* QuestionsViewController.swift */; };
+		7F569DD22CC64E8600B6BFEB /* LeadershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F569DD12CC64E8600B6BFEB /* LeadershipViewController.swift */; };
 		7FFD9DA62CB27D9800637C66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */; };
 		7FFD9DA82CB27D9800637C66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */; };
 		7FFD9DAA2CB27D9800637C66 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA92CB27D9800637C66 /* MainViewController.swift */; };
@@ -22,8 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F08557F2CBFF82C0081CB51 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		7F0855842CC0012F0081CB51 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7F1AB5842CC2C2BD00140201 /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		7F4215252CC02C5E00332D12 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7F569DCF2CC64E7000B6BFEB /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		7F569DD12CC64E8600B6BFEB /* LeadershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipViewController.swift; sourceTree = "<group>"; };
 		7FFD9DA22CB27D9800637C66 /* Milioner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Milioner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +58,7 @@
 		7F08557E2CBFF8040081CB51 /* Validations */ = {
 			isa = PBXGroup;
 			children = (
-				7F08557F2CBFF82C0081CB51 /* Validations.swift */,
+				7F4215252CC02C5E00332D12 /* Extension.swift */,
 			);
 			path = Validations;
 			sourceTree = "<group>";
@@ -136,6 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				7FFD9DA92CB27D9800637C66 /* MainViewController.swift */,
+				7F1AB5842CC2C2BD00140201 /* LogOutViewController.swift */,
+				7F569DCF2CC64E7000B6BFEB /* QuestionsViewController.swift */,
+				7F569DD12CC64E8600B6BFEB /* LeadershipViewController.swift */,
 				7FFD9DAB2CB27D9800637C66 /* Main.storyboard */,
 			);
 			path = Main;
@@ -213,14 +222,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F4215262CC02C5E00332D12 /* Extension.swift in Sources */,
 				7FFD9DC62CB2BA4500637C66 /* SignUpViewController.swift in Sources */,
 				7FFD9DAA2CB27D9800637C66 /* MainViewController.swift in Sources */,
+				7F1AB5852CC2C2BD00140201 /* LogOutViewController.swift in Sources */,
 				7F0855852CC0012F0081CB51 /* UserModel.swift in Sources */,
 				7FFD9DA62CB27D9800637C66 /* AppDelegate.swift in Sources */,
+				7F569DD22CC64E8600B6BFEB /* LeadershipViewController.swift in Sources */,
+				7F569DD02CC64E7000B6BFEB /* QuestionsViewController.swift in Sources */,
 				7FFD9DA82CB27D9800637C66 /* SceneDelegate.swift in Sources */,
 				7FFD9DC32CB2AC4200637C66 /* LoginViewController.swift in Sources */,
 				7FFD9DC12CB2842D00637C66 /* GetStartedViewController.swift in Sources */,
-				7F0855802CBFF82C0081CB51 /* Validations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
