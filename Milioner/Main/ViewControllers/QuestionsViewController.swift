@@ -17,8 +17,11 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         generateQuestions()
+        configureUI()
     }
-  
+    fileprivate func configureUI() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     fileprivate func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -47,6 +50,7 @@ class QuestionsViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+
 }
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -8,7 +8,10 @@
 import UIKit
 
 class LogOutViewController: UIViewController {
-
+    @IBOutlet private weak var logOut:UIButton!
+    @IBOutlet private weak var nameLabel:UILabel!
+    @IBOutlet private weak var surnameLabel:UILabel!
+    @IBOutlet private weak var emailLabel:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

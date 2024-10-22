@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMY-Sy-6Tz">
-                                <rect key="frame" x="24" y="752" width="345" height="48"/>
+                                <rect key="frame" x="24" y="712" width="345" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="t0b-g4-o4l"/>
                                 </constraints>
@@ -94,7 +94,7 @@
                             <constraint firstItem="wKb-Vc-kZH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V23-XK-Og9"/>
                             <constraint firstItem="zlS-QH-9uN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Y21-az-CfR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OMY-Sy-6Tz" secondAttribute="trailing" constant="24" id="Z85-ze-36R"/>
-                            <constraint firstAttribute="bottom" secondItem="OMY-Sy-6Tz" secondAttribute="bottom" constant="52" id="fxu-UG-Fbe"/>
+                            <constraint firstAttribute="bottom" secondItem="OMY-Sy-6Tz" secondAttribute="bottom" constant="92" id="fxu-UG-Fbe"/>
                             <constraint firstItem="OMY-Sy-6Tz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="g2o-em-RIr"/>
                             <constraint firstItem="Qjo-uv-aj1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="kXc-iQ-8db"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8wx-WF-Jp8" secondAttribute="trailing" id="onA-pl-Hfd"/>
@@ -106,6 +106,8 @@
                     <navigationItem key="navigationItem" id="C4q-Ri-A0d"/>
                     <connections>
                         <outlet property="imageView" destination="Fno-r9-unL" id="cII-l4-wdQ"/>
+                        <outlet property="nameTextField" destination="Qjo-uv-aj1" id="rho-Sr-UJw"/>
+                        <outlet property="startButton" destination="OMY-Sy-6Tz" id="rEN-M2-fle"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -282,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="3131" y="277"/>
         </scene>
-        <!--Log Out View Controller-->
+        <!--Log Out-->
         <scene sceneID="z8h-1c-EfY">
             <objects>
-                <viewController storyboardIdentifier="LogOutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y63-ok-3Wx" customClass="LogOutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogOutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y63-ok-3Wx" customClass="LogOutViewController" customModule="Milioner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wba-Lk-0tw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +330,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O77-FA-sLq">
-                                        <rect key="frame" x="24" y="752" width="345" height="48"/>
+                                        <rect key="frame" x="24" y="712" width="345" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="fPb-xd-h61"/>
                                         </constraints>
@@ -345,7 +347,7 @@
                                 <constraints>
                                     <constraint firstItem="gzo-5S-FDl" firstAttribute="leading" secondItem="Y4N-Gs-8Mh" secondAttribute="leading" constant="24" id="2s8-P9-M9Y"/>
                                     <constraint firstItem="O77-FA-sLq" firstAttribute="leading" secondItem="Y4N-Gs-8Mh" secondAttribute="leading" constant="24" id="G0f-xA-Q3k"/>
-                                    <constraint firstAttribute="bottom" secondItem="O77-FA-sLq" secondAttribute="bottom" constant="52" id="c4w-h2-ZNm"/>
+                                    <constraint firstAttribute="bottom" secondItem="O77-FA-sLq" secondAttribute="bottom" constant="92" id="c4w-h2-ZNm"/>
                                     <constraint firstAttribute="trailing" secondItem="O77-FA-sLq" secondAttribute="trailing" constant="24" id="fDg-xc-Ugc"/>
                                     <constraint firstAttribute="trailing" secondItem="gzo-5S-FDl" secondAttribute="trailing" constant="24" id="ipL-30-a7X"/>
                                     <constraint firstItem="gzo-5S-FDl" firstAttribute="top" secondItem="Y4N-Gs-8Mh" secondAttribute="top" constant="100" id="mSe-1M-0eH"/>
@@ -365,16 +367,23 @@
                             <constraint firstAttribute="bottom" secondItem="nah-3Y-Ouk" secondAttribute="bottom" id="pws-zo-1v2"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Log Out" image="arrowshape.left.fill" catalog="system" id="TTM-lh-NxZ"/>
                     <navigationItem key="navigationItem" id="Av5-1B-ISc"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="Lx1-p0-Zjj" id="IHT-T1-8si"/>
+                        <outlet property="logOut" destination="O77-FA-sLq" id="EFM-mi-aYt"/>
+                        <outlet property="nameLabel" destination="Hea-of-HXq" id="z1r-qS-A0X"/>
+                        <outlet property="surnameLabel" destination="0zi-0S-9p1" id="n81-Qr-mol"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGS-pH-pCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959.5419847328244" y="277.46478873239437"/>
+            <point key="canvasLocation" x="1033" y="318"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="z7I-Iv-llD">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" id="DX9-P6-qoq" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" id="DX9-P6-qoq" customClass="TabViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sks-dl-asC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -382,7 +391,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="ZGh-04-Doy" kind="relationship" relationship="viewControllers" id="eXR-at-UDg"/>
-                        <segue destination="PIs-ZK-0gi" kind="relationship" relationship="viewControllers" id="mzk-Gu-IkI"/>
+                        <segue destination="BC9-pC-cec" kind="relationship" relationship="viewControllers" id="HAB-yK-ZCi"/>
+                        <segue destination="Y63-ok-3Wx" kind="relationship" relationship="viewControllers" id="YJm-eh-fKv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flR-vs-Xj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -408,26 +418,7 @@
             </objects>
             <point key="canvasLocation" x="1032.824427480916" y="-539.43661971830988"/>
         </scene>
-        <!--logOut-->
-        <scene sceneID="CFL-yJ-45x">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PIs-ZK-0gi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="logOut" image="square.and.arrow.down" catalog="system" id="Yex-Rn-79L"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Xr-yR-Amu">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y63-ok-3Wx" kind="relationship" relationship="rootViewController" id="Vje-sL-3I9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mW-dS-zPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1032.824427480916" y="277.46478873239437"/>
-        </scene>
-        <!--Leadership View Controller-->
+        <!--Leadersboard-->
         <scene sceneID="znd-0k-5uB">
             <objects>
                 <viewController storyboardIdentifier="LeadershipViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BC9-pC-cec" customClass="LeadershipViewController" customModule="Milioner" customModuleProvider="target" sceneMemberID="viewController">
@@ -499,7 +490,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j98-IJ-cHP">
-                                <rect key="frame" x="0.0" y="344" width="393" height="508"/>
+                                <rect key="frame" x="0.0" y="276" width="393" height="576"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qpp-Jt-UuC">
                                         <rect key="frame" x="24" y="100" width="345" height="384"/>
@@ -565,7 +556,7 @@
                                 <constraints>
                                     <constraint firstItem="qpp-Jt-UuC" firstAttribute="leading" secondItem="j98-IJ-cHP" secondAttribute="leading" constant="24" id="5se-aN-GaZ"/>
                                     <constraint firstAttribute="trailing" secondItem="qpp-Jt-UuC" secondAttribute="trailing" constant="24" id="FZE-m2-8SI"/>
-                                    <constraint firstAttribute="bottom" secondItem="qpp-Jt-UuC" secondAttribute="bottom" constant="24" id="Hsl-rn-r97"/>
+                                    <constraint firstAttribute="bottom" secondItem="qpp-Jt-UuC" secondAttribute="bottom" constant="92" id="Hsl-rn-r97"/>
                                     <constraint firstItem="qpp-Jt-UuC" firstAttribute="top" secondItem="j98-IJ-cHP" secondAttribute="top" constant="100" id="Lep-4z-G60"/>
                                 </constraints>
                             </view>
@@ -585,17 +576,19 @@
                             <constraint firstItem="wvF-P9-5QO" firstAttribute="trailing" secondItem="Cnf-jp-dpr" secondAttribute="trailing" id="m4t-7W-rWM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Leadersboard" image="figure" catalog="system" id="aMf-un-i6l"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBD-0l-nRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3809.9236641221373" y="-539.43661971830988"/>
+            <point key="canvasLocation" x="1960" y="318"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="figure" catalog="system" width="117" height="128"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="mainControllerBG" width="3000" height="2000"/>
-        <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
         <namedColor name="kheloColor">
             <color red="0.97254901960784312" green="0.77647058823529413" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

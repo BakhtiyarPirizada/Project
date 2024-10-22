@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func showMain() -> UINavigationController{
-        let controller = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuestionsViewController") as? QuestionsViewController ?? QuestionsViewController()
+        let controller = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "TabViewController") as? UITabBarController ?? UITabBarController()
         let navigationController = UINavigationController(rootViewController: controller)
         return navigationController
     }
