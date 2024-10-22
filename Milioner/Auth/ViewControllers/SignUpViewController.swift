@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+      
         
     }
     fileprivate func configureUI() {

@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
     }
     fileprivate func configureUI() {
         imageView.image = .mainControllerBG
