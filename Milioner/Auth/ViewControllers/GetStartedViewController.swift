@@ -15,7 +15,7 @@ final class GetStartedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton()
-      
+        
 
     }
     fileprivate func configureLabels(){

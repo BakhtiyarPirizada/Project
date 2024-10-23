@@ -17,6 +17,8 @@
 		7F569E2B2CC6B02C00B6BFEB /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F569E282CC6B02C00B6BFEB /* AnswerCollectionViewCell.swift */; };
 		7F569E302CC7B1A200B6BFEB /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F569E2F2CC7B1A200B6BFEB /* QuestionCollectionViewCell.xib */; };
 		7F569E312CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F569E2E2CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift */; };
+		7FAAF97A2CC7EC4800DBBCF9 /* UserDefolutsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAF9792CC7EC4800DBBCF9 /* UserDefolutsHelper.swift */; };
+		7FAAF97C2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */; };
 		7FFD9DA62CB27D9800637C66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */; };
 		7FFD9DA82CB27D9800637C66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */; };
 		7FFD9DAA2CB27D9800637C66 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA92CB27D9800637C66 /* MainViewController.swift */; };
@@ -40,6 +42,8 @@
 		7F569E292CC6B02C00B6BFEB /* AnswerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F569E2E2CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F569E2F2CC7B1A200B6BFEB /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		7FAAF9792CC7EC4800DBBCF9 /* UserDefolutsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefolutsHelper.swift; sourceTree = "<group>"; };
+		7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefolutsKeys.swift; sourceTree = "<group>"; };
 		7FFD9DA22CB27D9800637C66 /* Milioner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Milioner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 			path = QuestionCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		7FAAF9782CC7EC1200DBBCF9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7FAAF9792CC7EC4800DBBCF9 /* UserDefolutsHelper.swift */,
+				7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7FFD9D992CB27D9800637C66 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +153,7 @@
 				7FFD9DB92CB27DA200637C66 /* App */,
 				7FFD9DBF2CB27E2800637C66 /* Main */,
 				7FFD9DBD2CB27DD000637C66 /* Auth */,
+				7FAAF9782CC7EC1200DBBCF9 /* Helpers */,
 				7FFD9DBA2CB27DB400637C66 /* Resources */,
 				7FFD9DB32CB27D9A00637C66 /* Info.plist */,
 			);
@@ -273,7 +287,9 @@
 			files = (
 				7F569E252CC69A6900B6BFEB /* Questions.swift in Sources */,
 				7F4215262CC02C5E00332D12 /* Extension.swift in Sources */,
+				7FAAF97C2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift in Sources */,
 				7F569E312CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift in Sources */,
+				7FAAF97A2CC7EC4800DBBCF9 /* UserDefolutsHelper.swift in Sources */,
 				7F569E2B2CC6B02C00B6BFEB /* AnswerCollectionViewCell.swift in Sources */,
 				7FFD9DC62CB2BA4500637C66 /* SignUpViewController.swift in Sources */,
 				7FFD9DAA2CB27D9800637C66 /* MainViewController.swift in Sources */,

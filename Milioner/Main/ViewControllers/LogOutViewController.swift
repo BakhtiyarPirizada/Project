@@ -14,19 +14,15 @@ class LogOutViewController: UIViewController {
     @IBOutlet private weak var emailLabel:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureButton()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureButton() {
+        logOut.addTarget(self, action: #selector(showRegister), for: .touchUpInside)
     }
-    */
+    @objc fileprivate func showRegister() {
+        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        scene?.switchToRegister()
+    }
 
 }

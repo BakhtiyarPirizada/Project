@@ -40,9 +40,8 @@ final class LoginViewController: UIViewController {
 
     }
     @objc fileprivate func loginButtonButtonClicked(){
-       
-        //let controller = UIStoryboard.init(name: "Main", bundle: //nil).instantiateViewController(withIdentifier: "TabViewController") as? //UITableViewController ?? UITableViewController()
-        //navigationController?.pushViewController(controller, animated: true)
+        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        scene?.switchToMain()
     }
     @objc fileprivate func signUpButtonClicked(){
        showSignUpController()
