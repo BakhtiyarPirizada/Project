@@ -133,18 +133,49 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhw-nB-Tqm">
+                                <rect key="frame" x="23.999999999999993" y="60" width="104.33333333333331" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="QdW-Sf-Hdz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt; Previous">
+                                    <color key="baseForegroundColor" name="labelColorMain"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqt-Dz-J7K">
+                                <rect key="frame" x="24" y="712" width="345" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="k3J-UV-Jq2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="labelColorMain"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Z8-b5-Wv5"/>
                         <color key="backgroundColor" name="questionsControleler BG"/>
                         <constraints>
                             <constraint firstItem="5Z8-b5-Wv5" firstAttribute="trailing" secondItem="8rK-r9-pdK" secondAttribute="trailing" id="75T-9x-LtJ"/>
+                            <constraint firstItem="zhw-nB-Tqm" firstAttribute="top" secondItem="PNR-xY-HWf" secondAttribute="top" constant="60" id="A3W-jQ-4SR"/>
                             <constraint firstItem="8rK-r9-pdK" firstAttribute="leading" secondItem="5Z8-b5-Wv5" secondAttribute="leading" id="GlN-gO-jRN"/>
                             <constraint firstAttribute="bottom" secondItem="8rK-r9-pdK" secondAttribute="bottom" id="Hd8-PD-D6K"/>
                             <constraint firstItem="8rK-r9-pdK" firstAttribute="top" secondItem="PNR-xY-HWf" secondAttribute="top" id="LfO-7L-SA6"/>
+                            <constraint firstItem="5Z8-b5-Wv5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zhw-nB-Tqm" secondAttribute="trailing" symbolic="YES" id="Q8m-Jf-wOU"/>
+                            <constraint firstAttribute="bottom" secondItem="Xqt-Dz-J7K" secondAttribute="bottom" constant="92" id="khE-l7-UEB"/>
+                            <constraint firstItem="zhw-nB-Tqm" firstAttribute="leading" secondItem="PNR-xY-HWf" secondAttribute="leading" constant="24" id="pg9-mc-pBU"/>
+                            <constraint firstAttribute="trailing" secondItem="Xqt-Dz-J7K" secondAttribute="trailing" constant="24" id="wNo-df-Iel"/>
+                            <constraint firstItem="Xqt-Dz-J7K" firstAttribute="leading" secondItem="PNR-xY-HWf" secondAttribute="leading" constant="24" id="zYN-AD-Cvu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="8rK-r9-pdK" id="ei1-Z5-w0Q"/>
+                        <outlet property="nextButton" destination="Xqt-Dz-J7K" id="N65-Ov-fpI"/>
+                        <outlet property="previousButton" destination="zhw-nB-Tqm" id="yQb-Bd-i36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCC-rB-Bfl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
