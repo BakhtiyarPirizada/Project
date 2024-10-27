@@ -45,9 +45,6 @@ class SignUpViewController: UIViewController {
         passwordText.isSecureTextEntry = true
         
     }
-    func textFieldColor(textField:String) {
-       
-    }
     @objc fileprivate func signUpButtonClicked(){
         let user = User(name: nameText.text!, surname: surnameText.text!, email: emailText.text!, password: passwordText.text!)
         delegate?.didFinishSignUp(user: user)
@@ -64,7 +61,6 @@ class SignUpViewController: UIViewController {
         email: String
     ) -> Bool {
         let result = name.count < 3 || !email.isValidEmail() || surname.count < 5 || password.count < 8
-        print(result)
         return result
     }
    
@@ -76,15 +72,18 @@ extension SignUpViewController: UITextFieldDelegate {
               let email = emailText.text,
               let password = passwordText.text else {return}
                 
-        
         signUpButton.isHidden = checkValidation(
             name: name,
             surname: surname,
             password: password,
             email: email
         )
-
+        if checkValidation(name: name, surname: surname, password: password, email: email) {
+            UserDefaultsHelper.setString(key: "name", value: name)
+            UserDefaultsHelper.setString(key: "surname", value: surname)
+            UserDefaultsHelper.setString(key: "password", value: password)
+            UserDefaultsHelper.setString(key: "email", value: email)
+        }
     }
-   
 }
 

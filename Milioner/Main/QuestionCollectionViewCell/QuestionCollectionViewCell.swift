@@ -15,7 +15,9 @@ class QuestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var questionNumberLabel:UILabel!
     @IBOutlet private weak var timeLabel:UILabel!
     var selectedIndex = 0
+    var counter  = 0
     var model:Questions?
+    weak var delegate: QuestionsViewController?
     var cellColors :[UIColor?] = Array(repeating: nil, count: 4)
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,8 +42,13 @@ class QuestionCollectionViewCell: UICollectionViewCell {
         nextButton.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
        
     }
+    
     @objc func nextPage() {
-        
+        delegate?.scrollToNextQuestion()
+    }
+    
+    override func prepareForReuse() {
+        collectionViewReload()
     }
 
 }
@@ -68,8 +75,8 @@ extension QuestionCollectionViewCell: UICollectionViewDelegate,UICollectionViewD
         if model.answers[indexPath.row] == model.trueAnswer {
             cellColors[indexPath.item] = .view
             collectionView.reloadItems(at: [indexPath])
-            collectionViewReload()
             nextButton.isEnabled = true
+            counter += 1
         }
         
     }

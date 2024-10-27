@@ -27,6 +27,7 @@ final class LoginViewController: UIViewController {
         loginButton.setTitle("Login", for: .normal)
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
         signUpButton.setTitle("Sign Up", for: .normal)
+        loginButton.isEnabled = false
     }
     fileprivate func configureUI(){
         configureButton()
@@ -37,34 +38,58 @@ final class LoginViewController: UIViewController {
         emailText.delegate = self
         passwordText.delegate = self
         passwordText.isSecureTextEntry = true
-
     }
+    fileprivate func checkValidation(
+        password:String,
+        email: String
+    ) -> Bool {
+        let result = emailText.text == UserDefaultsHelper.getString(key: "email") && passwordText.text == UserDefaultsHelper.getString(key: "password")
+        return result
+    }
+   
     @objc fileprivate func loginButtonButtonClicked(){
-        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        scene?.switchToMain()
+      // if checkValidation(password: passwordText.text!, email: emailText.text!){
+            let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            scene?.switchToMain()
+       //} else {
+       //   alert(titleInput: "Error", messageInput: "Useremail or password is wrong!")
+       //}
+    }
+    fileprivate func alert(titleInput: String, messageInput: String){
+        let errorAlert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive, handler: nil)
+            self.present(errorAlert, animated: true, completion: nil)
+        errorAlert.addAction(okButton)
     }
     @objc fileprivate func signUpButtonClicked(){
        showSignUpController()
     }
     fileprivate func  showSignUpController() {
-        
             let vc = UIStoryboard.init(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
             as! SignUpViewController
             navigationController?.pushViewController(vc, animated: true)
         vc.delegate = self
-        }
-    
+    }
 }
 extension LoginViewController: UITextFieldDelegate {
-
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+      guard let email = emailText.text,
+            let password = passwordText.text else {return}
+      if  checkValidation(password: password,email: email) {
+          loginButton.isEnabled = true
+      } else {
+         // alert(titleInput: "Error", messageInput: "Useremail or password is wrong!")
+      }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+    }
 }
 extension LoginViewController: SignUpDelegate {
     func didFinishSignUp(user: User) {
         emailText.text = user.email
         passwordText.text = user.password
+        loginButton.isEnabled = true
     }
-    
-    
 }
 
 
