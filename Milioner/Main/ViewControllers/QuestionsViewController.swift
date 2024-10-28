@@ -13,102 +13,100 @@ class QuestionsViewController: UIViewController {
     @IBOutlet private weak var nextButton:UIButton!
 
     fileprivate var questions:[Questions] = []
-    private var isTrue = false
-    var selectedIndex = 0
+    fileprivate var userDefaultAnswers : [String:String] = [:]
+    fileprivate var isTrue = false
+    fileprivate var selectedIndex = 0
+    fileprivate var currentQuestion = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        generateQuestions()
         configureUI()
-
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        collectionView.reloadData()
-    }
-
     fileprivate func configureUI() {
         navigationController?.setNavigationBarHidden(true, animated: true)
         configureButton()
-        generateQuestions()
         configureCollectionView()
-        //collectionViewReload()
     }
     fileprivate func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "QuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QuestionCollectionViewCell")
-        collectionView.isPagingEnabled = true
-       // collectionView.isScrollEnabled = false
+        collectionView.isScrollEnabled = false
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         collectionView.collectionViewLayout = layout
-        //collectionViewReload()
     }
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        collectionView.collectionViewLayout.invalidateLayout()
-//    }
     func configureButton() {
         nextButton.addTarget(self, action: #selector(scrollToNextQuestion), for: .touchUpInside)
         previousButton.addTarget(self, action: #selector(scrollToPreviousQuestion), for: .touchUpInside)
     }
-  
-    
     fileprivate func generateQuestions() {
         questions = [
-            Questions(question: "2+3", answers: ["5","3","6","2"], trueAnswer: "5"),
-            Questions(question: "2+5", answers: ["1","2","7","4"], trueAnswer: "7"),
-            Questions(question: "1+7", answers: ["3","4","5","8"], trueAnswer: "8"),
-            Questions(question: "8+3", answers: ["11","32","3","4"], trueAnswer: "11"),
-            Questions(question: "9+3", answers: ["10","3","39","12"], trueAnswer: "12"),
-            Questions(question: "10+3", answers: ["15","13","9","1"], trueAnswer: "13"),
-            Questions(question: "101+3", answers: ["15","113","19","104"], trueAnswer: "104")
+            Questions(question: "2+3", answers: [Answer(answer: "5", bool: true),Answer(answer: "6", bool: false),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
+            Questions(question: "2+4", answers: [Answer(answer: "5", bool: false),Answer(answer: "6", bool: true),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
+            Questions(question: "2+5", answers: [Answer(answer: "5", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: true),Answer(answer: "8", bool: false),]),
+            Questions(question: "2+6", answers: [Answer(answer: "15", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: false),Answer(answer: "8", bool: true),]),
+            Questions(question: "3+3", answers: [Answer(answer: "25", bool: false),Answer(answer: "6", bool: true),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
+            Questions(question: "4+3", answers: [Answer(answer: "35", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: true),Answer(answer: "8", bool: false),]),
         ]
-   
+        collectionViewReload()
     }
     fileprivate func collectionViewReload() {
         DispatchQueue.main.async{
             self.collectionView.reloadData()
         }
     }
-   @objc func scrollToNextQuestion() {
-     
-           if self.selectedIndex < self.questions.count - 1  {
-               self.selectedIndex += 1
-               let indexPath = IndexPath(item: self.selectedIndex, section: 0)
-               print("Scrolling to indexPath: \(indexPath)")
-               print(self.selectedIndex)
-               self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-               collectionViewReload()
-           } else {
-               print("Scrolling is not possible. Index is out of bounds.")
-           }
-         }
-       
+    @objc func scrollToNextQuestion() {
+        if self.currentQuestion < self.questions.count - 1  {
+            self.currentQuestion += 1
+            let indexPath = IndexPath(item: self.currentQuestion, section: 0)
+            print("Scrolling to indexPath: \(indexPath)")
+            print(self.currentQuestion)
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            collectionViewReload()
+        } else {
+            print("Scrolling is not possible. Index is out of bounds.")
+    }
+        print(userDefaultAnswers)
+}
     @objc func scrollToPreviousQuestion() {
-        print(#function)
-//        collectionViewReload()
-//        if selectedIndex > 0 {
-//            selectedIndex -= 1
-//           let indexPath = IndexPath(item: selectedIndex, section: 0)
-//                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//        if self.currentQuestion > 0  {
+//            self.currentQuestion -= 1
+//            let indexPath = IndexPath(item: self.currentQuestion, section: 0)
+//            print("Scrolling to indexPath: \(indexPath)")
+//            print(self.currentQuestion)
+//            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//            collectionViewReload()
+//        } else {
+//            print("Scrolling is not possible. Index is out of bounds.")
 //        }
-       
+        print(#function)
+    }
+    fileprivate func trueAnswers(answer:Answer) {
+        if selectedIndex > 0 {
+            selectedIndex -= 1
+            userDefaultAnswers[questions[selectedIndex].question] = answer.answer
+
+        } else {
+           userDefaultAnswers[questions[selectedIndex].question] = answer.answer
         }
+    }
 }
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-  
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return questions.count
     }
-
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCollectionViewCell", for: indexPath) as? QuestionCollectionViewCell ?? QuestionCollectionViewCell()
-        cell.configureCell(model: questions[indexPath.row])
+        cell.configureCell(model: questions[indexPath.row],num: currentQuestion)
         selectedIndex = indexPath.row
         cell.model = questions[indexPath.row]
+        cell.callback = { [weak self] answer in
+            self?.trueAnswers(answer: answer)
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -13,9 +13,6 @@ class AnswerCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
        
     }
-    override func prepareForReuse() {
-        answeLabel.text = ""
-    }
     func configureCell(answer:String) {
         answeLabel.text = answer
     }

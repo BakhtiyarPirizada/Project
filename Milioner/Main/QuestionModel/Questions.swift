@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import UIKit
 struct Questions {
     var question:String
-    var answers: [String]
-    var trueAnswer: String
+    var answers: [Answer]
 }
+struct Answer {
+    var answer : String
+    var bool : Bool
+    var color : UIColor = .clear
+}
+
