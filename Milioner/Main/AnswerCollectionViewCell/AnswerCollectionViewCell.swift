@@ -8,7 +8,8 @@
 import UIKit
 
 class AnswerCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var answeLabel:UILabel!
+    @IBOutlet private weak var answeLabel: UILabel!
+    @IBOutlet private weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
        

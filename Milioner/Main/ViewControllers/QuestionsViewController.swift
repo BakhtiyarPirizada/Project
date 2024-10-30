@@ -11,7 +11,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet private var collectionView:UICollectionView!
     @IBOutlet private weak var previousButton:UIButton!
     @IBOutlet private weak var nextButton:UIButton!
-
+    
     fileprivate var questions:[Questions] = []
     fileprivate var userDefaultAnswers : [String:String] = [:]
     fileprivate var isTrue = false
@@ -24,6 +24,7 @@ class QuestionsViewController: UIViewController {
     }
     fileprivate func configureUI() {
         navigationController?.setNavigationBarHidden(true, animated: true)
+      
         configureButton()
         configureCollectionView()
     }
@@ -63,10 +64,14 @@ class QuestionsViewController: UIViewController {
             self.currentQuestion += 1
             let indexPath = IndexPath(item: self.currentQuestion, section: 0)
             print("Scrolling to indexPath: \(indexPath)")
-            print(self.currentQuestion)
+            //print(self.currentQuestion)
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             collectionViewReload()
-        } else {
+        } else if self.currentQuestion == self.questions.count - 1 {
+            nextButton.setTitle("Submit", for: .normal)
+            nextButton.addTarget(self, action: #selector(showResults), for: .touchUpInside)
+        }
+        else {
             print("Scrolling is not possible. Index is out of bounds.")
     }
         print(userDefaultAnswers)
@@ -84,14 +89,21 @@ class QuestionsViewController: UIViewController {
 //        }
         print(#function)
     }
+   @objc fileprivate func showResults() {
+       let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResultsControllerView")
+       as? ResultsControllerView ?? ResultsControllerView()
+       vc.questions = Array(userDefaultAnswers.keys)
+       vc.answers = Array(userDefaultAnswers.values)
+       navigationController?.pushViewController(vc, animated: true)
+       
+    }
     fileprivate func trueAnswers(answer:Answer) {
-        if selectedIndex > 0 {
-            selectedIndex -= 1
-            userDefaultAnswers[questions[selectedIndex].question] = answer.answer
-
-        } else {
-           userDefaultAnswers[questions[selectedIndex].question] = answer.answer
-        }
+//        if selectedIndex > 0 && selectedIndex < self.questions.count  {
+//            selectedIndex -= 1
+            userDefaultAnswers[questions[currentQuestion].question] = answer.answer
+//        } else {
+//           userDefaultAnswers[questions[selectedIndex].question] = answer.answer
+//        }
     }
 }
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -112,6 +124,4 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-
-    
 }

@@ -14,6 +14,6 @@ struct Questions {
 struct Answer {
     var answer : String
     var bool : Bool
-    var color : UIColor = .clear
+   // var color : UIColor = .clear
 }
 

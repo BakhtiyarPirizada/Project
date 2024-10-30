@@ -55,10 +55,9 @@ extension QuestionCollectionViewCell: UICollectionViewDelegate,UICollectionViewD
         CGSize(width: collectionView.frame.width - 4, height: collectionView.frame.height/4 - 4)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // guard let model =  model else {return}
         guard !boolean else {return}
         boolean = true
-        if model?.answers[indexPath.row].bool == true {
+        if boolean == true && model?.answers[indexPath.row].bool == true {
             cellColors[indexPath.item] = .view
             guard let answer = model?.answers[indexPath.row] else {return}
             callback?(answer)

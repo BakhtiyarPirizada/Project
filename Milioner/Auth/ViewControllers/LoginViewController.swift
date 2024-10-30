@@ -27,7 +27,6 @@ final class LoginViewController: UIViewController {
         loginButton.setTitle("Login", for: .normal)
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
         signUpButton.setTitle("Sign Up", for: .normal)
-        loginButton.isEnabled = false
     }
     fileprivate func configureUI(){
         configureButton()
@@ -48,12 +47,12 @@ final class LoginViewController: UIViewController {
     }
    
     @objc fileprivate func loginButtonButtonClicked(){
-      // if checkValidation(password: passwordText.text!, email: emailText.text!){
+        if emailText.text?.isEmpty == false && passwordText.text?.isEmpty == false {
             let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             scene?.switchToMain()
-       //} else {
-       //   alert(titleInput: "Error", messageInput: "Useremail or password is wrong!")
-       //}
+       } else {
+          alert(titleInput: "Error", messageInput: "Useremail or Password can not be empty")
+       }
     }
     fileprivate func alert(titleInput: String, messageInput: String){
         let errorAlert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)

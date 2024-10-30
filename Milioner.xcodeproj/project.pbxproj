@@ -19,6 +19,9 @@
 		7F569E312CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F569E2E2CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift */; };
 		7FAAF97A2CC7EC4800DBBCF9 /* UserDefolutsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAF9792CC7EC4800DBBCF9 /* UserDefolutsHelper.swift */; };
 		7FAAF97C2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */; };
+		7FD717CF2CD0D11F00EFB81C /* ResultsControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD717CE2CD0D11F00EFB81C /* ResultsControllerView.swift */; };
+		7FD717D22CD0D5E400EFB81C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD717D12CD0D5E400EFB81C /* TableViewCell.xib */; };
+		7FD717D32CD0D5E400EFB81C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD717D02CD0D5E400EFB81C /* TableViewCell.swift */; };
 		7FFD9DA62CB27D9800637C66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */; };
 		7FFD9DA82CB27D9800637C66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */; };
 		7FFD9DAA2CB27D9800637C66 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD9DA92CB27D9800637C66 /* MainViewController.swift */; };
@@ -44,6 +47,9 @@
 		7F569E2F2CC7B1A200B6BFEB /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7FAAF9792CC7EC4800DBBCF9 /* UserDefolutsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefolutsHelper.swift; sourceTree = "<group>"; };
 		7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefolutsKeys.swift; sourceTree = "<group>"; };
+		7FD717CE2CD0D11F00EFB81C /* ResultsControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsControllerView.swift; sourceTree = "<group>"; };
+		7FD717D02CD0D5E400EFB81C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		7FD717D12CD0D5E400EFB81C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		7FFD9DA22CB27D9800637C66 /* Milioner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Milioner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD9DA52CB27D9800637C66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFD9DA72CB27D9800637C66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			children = (
 				7FFD9DA92CB27D9800637C66 /* MainViewController.swift */,
 				7F569DCF2CC64E7000B6BFEB /* QuestionsViewController.swift */,
+				7FD717CE2CD0D11F00EFB81C /* ResultsControllerView.swift */,
 				7F569DD12CC64E8600B6BFEB /* LeadershipViewController.swift */,
 				7F1AB5842CC2C2BD00140201 /* LogOutViewController.swift */,
 			);
@@ -129,6 +136,15 @@
 				7FAAF97B2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7FD717D42CD0D5ED00EFB81C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7FD717D02CD0D5E400EFB81C /* TableViewCell.swift */,
+				7FD717D12CD0D5E400EFB81C /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		7FFD9D992CB27D9800637C66 = {
@@ -202,9 +218,10 @@
 		7FFD9DBF2CB27E2800637C66 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				7F569E2D2CC7B17D00B6BFEB /* QuestionCollectionViewCell */,
 				7F569E262CC69AD700B6BFEB /* QuestionModel */,
+				7F569E2D2CC7B17D00B6BFEB /* QuestionCollectionViewCell */,
 				7F569E2C2CC6B03400B6BFEB /* AnswerCollectionViewCell */,
+				7FD717D42CD0D5ED00EFB81C /* TableViewCell */,
 				7F569DD32CC675C500B6BFEB /* ViewControllers */,
 				7FFD9DAB2CB27D9800637C66 /* Main.storyboard */,
 			);
@@ -271,6 +288,7 @@
 			files = (
 				7F569E302CC7B1A200B6BFEB /* QuestionCollectionViewCell.xib in Resources */,
 				7F569E2A2CC6B02C00B6BFEB /* AnswerCollectionViewCell.xib in Resources */,
+				7FD717D22CD0D5E400EFB81C /* TableViewCell.xib in Resources */,
 				7FFD9DBC2CB27DCA00637C66 /* Auth.storyboard in Resources */,
 				7FFD9DAF2CB27D9A00637C66 /* Assets.xcassets in Resources */,
 				7FFD9DB22CB27D9A00637C66 /* Base in Resources */,
@@ -288,6 +306,7 @@
 				7F569E252CC69A6900B6BFEB /* Questions.swift in Sources */,
 				7F4215262CC02C5E00332D12 /* Extension.swift in Sources */,
 				7FAAF97C2CC7EC7F00DBBCF9 /* UserDefolutsKeys.swift in Sources */,
+				7FD717D32CD0D5E400EFB81C /* TableViewCell.swift in Sources */,
 				7F569E312CC7B1A200B6BFEB /* QuestionCollectionViewCell.swift in Sources */,
 				7FAAF97A2CC7EC4800DBBCF9 /* UserDefolutsHelper.swift in Sources */,
 				7F569E2B2CC6B02C00B6BFEB /* AnswerCollectionViewCell.swift in Sources */,
@@ -296,6 +315,7 @@
 				7F1AB5852CC2C2BD00140201 /* LogOutViewController.swift in Sources */,
 				7F0855852CC0012F0081CB51 /* UserModel.swift in Sources */,
 				7FFD9DA62CB27D9800637C66 /* AppDelegate.swift in Sources */,
+				7FD717CF2CD0D11F00EFB81C /* ResultsControllerView.swift in Sources */,
 				7F569DD22CC64E8600B6BFEB /* LeadershipViewController.swift in Sources */,
 				7F569DD02CC64E7000B6BFEB /* QuestionsViewController.swift in Sources */,
 				7FFD9DA82CB27D9800637C66 /* SceneDelegate.swift in Sources */,
