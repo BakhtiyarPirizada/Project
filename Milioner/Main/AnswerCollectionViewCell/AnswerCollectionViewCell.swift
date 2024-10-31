@@ -9,12 +9,12 @@ import UIKit
 
 class AnswerCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var answeLabel: UILabel!
-    @IBOutlet private weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
        
     }
-    func configureCell(answer:String) {
-        answeLabel.text = answer
+    func configureCell(answer:Answer) {
+        answeLabel.text = answer.answer
+        contentView.backgroundColor = answer.color
     }
 }

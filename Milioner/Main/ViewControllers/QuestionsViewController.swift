@@ -45,12 +45,60 @@ class QuestionsViewController: UIViewController {
     }
     fileprivate func generateQuestions() {
         questions = [
-            Questions(question: "2+3", answers: [Answer(answer: "5", bool: true),Answer(answer: "6", bool: false),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
-            Questions(question: "2+4", answers: [Answer(answer: "5", bool: false),Answer(answer: "6", bool: true),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
-            Questions(question: "2+5", answers: [Answer(answer: "5", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: true),Answer(answer: "8", bool: false),]),
-            Questions(question: "2+6", answers: [Answer(answer: "15", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: false),Answer(answer: "8", bool: true),]),
-            Questions(question: "3+3", answers: [Answer(answer: "25", bool: false),Answer(answer: "6", bool: true),Answer(answer: "7", bool: false),Answer(answer: "8", bool: false),]),
-            Questions(question: "4+3", answers: [Answer(answer: "35", bool: false),Answer(answer: "6", bool: false),Answer(answer: "7", bool: true),Answer(answer: "8", bool: false),]),
+            Questions(
+                question: "2+3",
+                answers: [
+                    Answer(answer: "5", bool: true),
+                    Answer(answer: "6", bool: false),
+                    Answer(answer: "7", bool: false),
+                    Answer(answer: "8", bool: false),
+                ]
+            ),
+            Questions(
+                question: "2+4",
+                answers: [
+                    Answer(answer: "5", bool: false),
+                    Answer(answer: "6", bool: true),
+                    Answer(answer: "7", bool: false),
+                    Answer(answer: "8", bool: false),
+                ]
+            ),
+            Questions(
+                question: "2+5",
+                answers: [
+                    Answer(answer: "5", bool: false),
+                    Answer(answer: "6", bool: false),
+                    Answer(answer: "7", bool: true),
+                    Answer(answer: "8", bool: false),
+                ]
+            ),
+            Questions(
+                question: "2+6",
+                answers: [
+                    Answer(answer: "15", bool: false),
+                    Answer(answer: "6", bool: false),
+                    Answer(answer: "7", bool: false),
+                    Answer(answer: "8", bool: true),
+                ]
+            ),
+            Questions(
+                question: "3+3",
+                answers: [
+                    Answer(answer: "25", bool: false),
+                    Answer(answer: "6", bool: true),
+                    Answer(answer: "7", bool: false),
+                    Answer(answer: "8", bool: false),
+                ]
+            ),
+            Questions(
+                question: "4+3",
+                answers: [
+                    Answer(answer: "35", bool: false),
+                    Answer(answer: "6", bool: false),
+                    Answer(answer: "7", bool: true),
+                    Answer(answer: "8", bool: false),
+                ]
+            ),
         ]
         collectionViewReload()
     }
@@ -64,8 +112,8 @@ class QuestionsViewController: UIViewController {
             self.currentQuestion += 1
             let indexPath = IndexPath(item: self.currentQuestion, section: 0)
             print("Scrolling to indexPath: \(indexPath)")
-            //print(self.currentQuestion)
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            print(currentQuestion)
             collectionViewReload()
         } else if self.currentQuestion == self.questions.count - 1 {
             nextButton.setTitle("Submit", for: .normal)
@@ -98,12 +146,17 @@ class QuestionsViewController: UIViewController {
        
     }
     fileprivate func trueAnswers(answer:Answer) {
-//        if selectedIndex > 0 && selectedIndex < self.questions.count  {
-//            selectedIndex -= 1
-            userDefaultAnswers[questions[currentQuestion].question] = answer.answer
-//        } else {
-//           userDefaultAnswers[questions[selectedIndex].question] = answer.answer
-//        }
+            userDefaultAnswers[questions[currentQuestion ].question] = answer.answer
+    }
+    
+    fileprivate func checkAnswer(index: Int) {
+        let answer = questions[currentQuestion].answers[index]
+        if answer.bool {
+            questions[currentQuestion].answers[index].color = .view
+        } else {
+            questions[currentQuestion].answers[index].color = .red
+        }
+        collectionViewReload()
     }
 }
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -114,10 +167,10 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCollectionViewCell", for: indexPath) as? QuestionCollectionViewCell ?? QuestionCollectionViewCell()
         cell.configureCell(model: questions[indexPath.row],num: currentQuestion)
-        selectedIndex = indexPath.row
         cell.model = questions[indexPath.row]
-        cell.callback = { [weak self] answer in
-            self?.trueAnswers(answer: answer)
+        cell.callback = { [weak self] index in
+            self?.checkAnswer(index: index)
+//            self?.trueAnswers(answer: answer)
         }
         return cell
     }

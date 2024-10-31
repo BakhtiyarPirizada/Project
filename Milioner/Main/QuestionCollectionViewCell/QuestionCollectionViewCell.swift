@@ -13,8 +13,7 @@ class QuestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var questionNumberLabel:UILabel!
     @IBOutlet private weak var timeLabel:UILabel!
     var model:Questions?
-    var callback:( (Answer) -> Void )?
-    var cellColors :[UIColor?] = Array(repeating: nil, count: 4)
+    var callback:( (Int) -> Void )?
     var boolean = false
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,27 +40,21 @@ class QuestionCollectionViewCell: UICollectionViewCell {
 }
 extension QuestionCollectionViewCell: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      4
+        model?.answers.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCollectionViewCell", for: indexPath) as? AnswerCollectionViewCell ?? AnswerCollectionViewCell()
         if let model = model {
-            cell.configureCell(answer:model.answers[indexPath.row].answer)
+            cell.configureCell(answer:model.answers[indexPath.row])
         }
-     cell.backgroundColor = cellColors[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width - 4, height: collectionView.frame.height/4 - 4)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard !boolean else {return}
-        boolean = true
-        if boolean == true && model?.answers[indexPath.row].bool == true {
-            cellColors[indexPath.item] = .view
-            guard let answer = model?.answers[indexPath.row] else {return}
-            callback?(answer)
-            collectionViewReload()
-        }
+//        guard !boolean else {return}
+//        boolean = true
+        callback?(indexPath.row)
     }
 }
